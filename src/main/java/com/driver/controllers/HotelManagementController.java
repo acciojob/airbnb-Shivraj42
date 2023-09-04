@@ -76,7 +76,7 @@ public class HotelManagementController {
         //return the final updated List of facilities and also update that in your hotelDb
         //Note that newFacilities can also have duplicate facilities possible
         Hotel hotel= hotelManagementService.updateFacilities(newFacilities, hotelName);
-        return null;
+        return hotel;
     }
 
 }
