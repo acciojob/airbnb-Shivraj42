@@ -68,7 +68,7 @@ public class HotelManagementController {
         return bookings;
     }
 
-    @PutMapping("/update-facilities/")
+    @PutMapping("/update-facilities/{hotelName}")
     public Hotel updateFacilities(@RequestParam List<Facility> newFacilities, @PathVariable String hotelName){
 
         //We are having a new facilites that a hotel is planning to bring.
