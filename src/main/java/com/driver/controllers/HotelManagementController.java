@@ -5,13 +5,7 @@ import com.driver.model.Facility;
 import com.driver.model.Hotel;
 import com.driver.model.User;
 import com.driver.services.HotelManagementService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -50,7 +44,7 @@ public class HotelManagementController {
         //Incase there is a tie return the lexicographically smaller hotelName
         //Incase there is not even a single hotel with atleast 1 facility return "" (empty string)
         String hotelName= hotelManagementService.getHotelWithMostFacilities();
-        return null;
+        return hotelName;
     }
 
     @PostMapping("/book-a-room")
@@ -74,8 +68,8 @@ public class HotelManagementController {
         return bookings;
     }
 
-    @PutMapping("/update-facilities")
-    public Hotel updateFacilities(List<Facility> newFacilities,String hotelName){
+    @PutMapping("/update-facilities/")
+    public Hotel updateFacilities(@RequestParam List<Facility> newFacilities, @PathVariable String hotelName){
 
         //We are having a new facilites that a hotel is planning to bring.
         //If the hotel is already having that facility ignore that facility otherwise add that facility in the hotelDb
