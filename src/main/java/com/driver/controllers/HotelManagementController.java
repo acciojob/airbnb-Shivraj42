@@ -68,8 +68,8 @@ public class HotelManagementController {
         return bookings;
     }
 
-    @PutMapping("/update-facilities/{hotelName}")
-    public Hotel updateFacilities(@RequestParam List<Facility> newFacilities, @PathVariable String hotelName){
+    @PutMapping("/update-facilities")
+    public Hotel updateFacilities(@RequestParam List<Facility> newFacilities, @RequestParam String hotelName){
 
         //We are having a new facilites that a hotel is planning to bring.
         //If the hotel is already having that facility ignore that facility otherwise add that facility in the hotelDb
